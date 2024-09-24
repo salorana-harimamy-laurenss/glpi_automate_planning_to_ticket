@@ -27,6 +27,6 @@ Dans le dossier **script** , les classes utiles pour le script principal du **sc
 
 Pour se documenter, voici quelques documentations :
 
-    - [Documentation GLPI Générale](https://glpi-project.org/documentation/)  
-    - [Documentation API Developper GLPI](https://glpi-developer-documentation.readthedocs.io/en/master/devapi/index.html)  
-    - [Documentation API GLPI](https://glpi-user-documentation.readthedocs.io/fr/latest/modules/configuration/general/api.html)  
+- [Documentation GLPI Générale](https://glpi-project.org/documentation/)  
+- [Documentation API Developper GLPI](https://glpi-developer-documentation.readthedocs.io/en/master/devapi/index.html)  
+- [Documentation API GLPI](https://glpi-user-documentation.readthedocs.io/fr/latest/modules/configuration/general/api.html)  
