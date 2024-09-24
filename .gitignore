@@ -1,0 +1,8 @@
+# local env files
+.env
+
+# Editor directories and files
+.vscode
+
+/vendor
+composer.lock
