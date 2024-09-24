@@ -1,6 +1,6 @@
 <?php
 
-    require 'vendor/autoload.php';
+    require __DIR__ . '/vendor/autoload.php'; // Charger l'autoloader Composer
 
     require "./scripts/script_session.php";
     require "./scripts/script_planning.php";
@@ -9,7 +9,10 @@
     require "./scripts/script_ticket.php";
     require "./scripts/script_user_ticket.php";
 
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    
+    use Dotenv\Dotenv;
+
+    $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
    
     /*
@@ -17,7 +20,7 @@
     */
     $API_URL = $_ENV["API_URL"];
     $USER_TOKEN = $_ENV["USER_TOKEN"];
-    $APP_TOKEN = $_ENV["DB_HOST"];
+    $APP_TOKEN = $_ENV["APP_TOKEN"];
 
     $session = new InitSession($API_URL,$USER_TOKEN,$APP_TOKEN);
     $session_token = $session->getSessionToken();
