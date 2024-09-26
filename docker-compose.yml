@@ -6,10 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: glpi-automate-planning-to-ticket
-    environment:
-      API_URL: http://localhost/glpi/apirest.php
-      USER_TOKEN: J0kFNMg3GOrf4x1vYRM36LPSllQcetWumaWH7siN
-      APP_TOKEN: NwBbL7EOwFixORF0MYP8mTzQJL8wBoSQWJySkZ1m
     networks:
       - glpi-network
     command: cron -f

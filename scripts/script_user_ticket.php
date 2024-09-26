@@ -55,7 +55,7 @@ class TicketUser{
 
                     $user_ticketID = $responseData["id"];
                    
-                    echo " L'ID de l'UserTicket créée est : " . $user_ticketID . "\n";
+                    //echo " L'ID de l'UserTicket créée est : " . $user_ticketID . "\n";
 
                     return $user_ticketID;
 

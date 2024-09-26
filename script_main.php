@@ -9,7 +9,6 @@
     require "./scripts/script_ticket.php";
     require "./scripts/script_user_ticket.php";
 
-    
     //use Dotenv\Dotenv;
 
     //$dotenv = Dotenv::createImmutable(__DIR__);
@@ -81,9 +80,9 @@
             $user_ticket = new TicketUser($API_URL, $USER_TOKEN, $session_token, $APP_TOKEN);
             $user_ticket_add = $user_ticket->setUserTicket( $data, $ticket_new_id);
 
-            if(!!$user_ticket_add){
-                echo "Action | Demandeur | Add-UserTicket avec ID : " . $user_ticket_add . " réussi ! \n";
-            }
+            // if(!!$user_ticket_add){
+            //     echo "Action | Demandeur | Add-UserTicket avec ID : " . $user_ticket_add . " réussi ! \n";
+            // }
 
             /*
             * Création du UserTicket : Type : Observateur
@@ -106,9 +105,9 @@
                     $user_ticket = new TicketUser($API_URL, $USER_TOKEN, $session_token, $APP_TOKEN);
                     $user_ticket_add = $user_ticket->setUserTicket( $data, $ticket_new_id);
     
-                    if(!!$user_ticket_add){
-                        echo "Action | Observateur | Add-UserTicket avec ID : " . $user_ticket_add . " réussi ! \n";
-                    }
+                    // if(!!$user_ticket_add){
+                    //     echo "Action | Observateur | Add-UserTicket avec ID : " . $user_ticket_add . " réussi ! \n";
+                    // }
                 }
             }else{
                 echo "Impossible de traiter les utilisateurs invités, la variable n'est pas un tableau.";
@@ -120,6 +119,9 @@
 
     $session->closeSession();
 
-    echo "Total est : " . $total ;
+    echo "Total est : " . $total ."\n\n" ;
+    
+    echo "****************************************************************************\n";
+    echo "****************************************************************************\n\n";
 
 ?>

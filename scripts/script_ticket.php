@@ -67,8 +67,8 @@ class TicketCreate{
 
                     $ticketID = $responseData["id"];
 
-                    echo "\n\n************  TICKET  **************** \n";
-                    echo "L'ID du ticket créée est : " . $ticketID ."\n";
+                    //echo "\n\n************  TICKET  **************** \n";
+                    //echo "L'ID du ticket créée est : " . $ticketID ."\n";
 
                     return $ticketID;
 
