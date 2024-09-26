@@ -7,20 +7,25 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     libzip-dev \
+    libcurl4-openssl-dev \
+    pkg-config \
     zip \
     unzip \
     cron \
-    curl
+    && docker-php-ext-install curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* zip
+
 
 # Activer l'extension curl pour PHP 
-RUN docker-php-ext-install curl pdo pdo_mysql mysqli zip gd
+RUN docker-php-ext-install curl
 
 # Installer Composer sur l'image
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copier votre script PHP dans le répertoire de travail
 WORKDIR /var/www/html
-COPY . /var/www/html
+COPY . .
 
 # Run composer install to install PHP dependencies
 RUN composer install
