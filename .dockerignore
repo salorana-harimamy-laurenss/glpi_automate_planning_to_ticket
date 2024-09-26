@@ -1,0 +1,16 @@
+# Ignorer le fichier composer
+composer.json
+composer.lock
+
+# Ignorer le répertoire vendor
+vendor/
+
+# Ignorer le fichier de configuration local
+Dockerfile
+.git
+.gitignore
+.gitattributes
+docker-compose.yml
+
+# Ignorer le fichier env
+.env

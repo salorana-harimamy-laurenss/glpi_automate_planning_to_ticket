@@ -12,23 +12,17 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     cron \
+    git \
     && docker-php-ext-install curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* zip
 
-
 # Activer l'extension curl pour PHP 
 RUN docker-php-ext-install curl
-
-# Installer Composer sur l'image
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copier votre script PHP dans le répertoire de travail
 WORKDIR /var/www/html
 COPY . .
-
-# Run composer install to install PHP dependencies
-RUN composer install
 
 # Copier le fichier crontab pour l'exécution quotidienne à 4h du matin
 COPY ./crontask/crontab_glpi_planning /etc/cron.d/crontab_glpi_planning
@@ -44,9 +38,3 @@ RUN chmod 664 /var/log/cron_script_glpi.log
 
 # Appliquer le crontab
 RUN crontab /etc/cron.d/crontab_glpi_planning
-
-# Exécuter cron en avant-plan
-CMD ["cron", "-f"]
-
-
-

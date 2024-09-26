@@ -1,6 +1,6 @@
 <?php
 
-    require __DIR__ . '/vendor/autoload.php'; // Charger l'autoloader Composer
+    //require __DIR__ . '/vendor/autoload.php'; // Charger l'autoloader Composer
 
     require "./scripts/script_session.php";
     require "./scripts/script_planning.php";
@@ -10,10 +10,10 @@
     require "./scripts/script_user_ticket.php";
 
     
-    use Dotenv\Dotenv;
+    //use Dotenv\Dotenv;
 
-    $dotenv = Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
+    //$dotenv = Dotenv::createImmutable(__DIR__);
+    //$dotenv->load();
    
     /*
     **  API DISTANT ? SERVEUR GLPI

@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  glpi-automate-planning-ticket:
+  script:
     build: 
       context: .
       dockerfile: Dockerfile
@@ -10,10 +10,6 @@ services:
       API_URL: http://localhost/glpi/apirest.php
       USER_TOKEN: J0kFNMg3GOrf4x1vYRM36LPSllQcetWumaWH7siN
       APP_TOKEN: NwBbL7EOwFixORF0MYP8mTzQJL8wBoSQWJySkZ1m
-    volumes:
-      - .:/var/www/html
-      - ./crontask/crontab_glpi_planning:/etc/cron.d/crontab_glpi_planning
-      - ./crontask/cron_script_glpi.log:/var/log/cron_script_glpi.log
     networks:
       - glpi-network
     command: cron -f
