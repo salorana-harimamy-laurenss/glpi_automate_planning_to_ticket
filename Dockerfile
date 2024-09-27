@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     cron \
-    git \
+    nano \
     tzdata \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd curl \
@@ -28,7 +28,7 @@ RUN docker-php-ext-install curl
 COPY . .
 
 # Créer un script d'entrée
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
@@ -46,7 +46,3 @@ RUN chmod 664 /var/log/cron_script_glpi.log
 
 # Appliquer le crontab
 RUN crontab /etc/cron.d/crontab_glpi_planning
-
-ENTRYPOINT ["sh", "-c","/usr/local/bin/entrypoint.sh"]
-
-CMD ["cron", "-f"]

@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   script:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: glpi-automate-planning-to-ticket
@@ -11,10 +11,11 @@ services:
       - USER_TOKEN=J0kFNMg3GOrf4x1vYRM36LPSllQcetWumaWH7siN
       - APP_TOKEN=NwBbL7EOwFixORF0MYP8mTzQJL8wBoSQWJySkZ1m
       - WORKDIR_PATH=/var/www/html/
-      - CRON_SCHEDULE= */10 * * * *
+      - CRON_SCHEDULE=*/10 * * * *
       - TIMEZONE=Africa/Nairobi
     networks:
       - glpi-network
+    command: ["/usr/local/bin/entrypoint.sh","cron", "-f"]
     restart: unless-stopped
 
 networks:
