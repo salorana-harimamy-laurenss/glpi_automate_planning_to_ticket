@@ -1,6 +1,8 @@
 # Utiliser l'image PHP officielle version 7.4
 FROM php:7.4-cli
 
+WORKDIR /var/www/html
+
 # Installer curl et cron et les paquets utiles
 RUN apt-get update && apt-get install -y \
     libpng-dev \
@@ -23,7 +25,6 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install curl
 
 # Copier votre script PHP dans le répertoire de travail
-WORKDIR /var/www/html
 COPY . .
 
 # Définir la timezone
@@ -45,9 +46,10 @@ RUN chmod 644 /etc/cron.d/crontab_glpi_planning
 RUN chmod 664 /var/log/cron_script_glpi.log
 
 # Écrire les variables d'environnement dans /etc/environment
-RUN echo "API_URL=http://localhost/glpi/apirest.php" >> /etc/environment && \
-    echo "USER_TOKEN=J0kFNMg3GOrf4x1vYRM36LPSllQcetWumaWH7siN" >> /etc/environment && \
-    echo "APP_TOKEN=NwBbL7EOwFixORF0MYP8mTzQJL8wBoSQWJySkZ1m" >> /etc/environment
+RUN echo "API_URL=${API_URL:-http://localhost/glpi/apirest.php}" >> /etc/environment && \
+    echo "USER_TOKEN=${USER_TOKEN:-J0kFNMg3GOrf4x1vYRM36LPSllQcetWumaWH7siN}" >> /etc/environment && \
+    echo "WORKDIR_PATH=${WORKDIR_PATH:-/var/www/html/}" >> /etc/environment && \
+    echo "APP_TOKEN=${APP_TOKEN:-NwBbL7EOwFixORF0MYP8mTzQJL8wBoSQWJySkZ1m}" >> /etc/environment
 
 # Appliquer le crontab
 RUN crontab /etc/cron.d/crontab_glpi_planning

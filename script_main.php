@@ -2,12 +2,12 @@
 
     //require __DIR__ . '/vendor/autoload.php'; // Charger l'autoloader Composer
 
-    require "./scripts/script_session.php";
-    require "./scripts/script_planning.php";
-    require "./scripts/script_event_scheduler.php";
-    require "./scripts/script_guest_user.php";
-    require "./scripts/script_ticket.php";
-    require "./scripts/script_user_ticket.php";
+    require $_ENV["WORKDIR_PATH"]."scripts/script_session.php";
+    require $_ENV["WORKDIR_PATH"]."scripts/script_planning.php";
+    require $_ENV["WORKDIR_PATH"]."scripts/script_event_scheduler.php";
+    require $_ENV["WORKDIR_PATH"]."scripts/script_guest_user.php";
+    require $_ENV["WORKDIR_PATH"]."scripts/script_ticket.php";
+    require $_ENV["WORKDIR_PATH"]."scripts/script_user_ticket.php";
 
     //use Dotenv\Dotenv;
 
