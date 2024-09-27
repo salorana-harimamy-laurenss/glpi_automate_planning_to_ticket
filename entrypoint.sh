@@ -15,6 +15,6 @@ echo "${CRON_SCHEDULE} /bin/bash -c 'source /etc/environment && /usr/local/bin/p
 TZ=${TIMEZONE:-Africa/Nairobi}
 
 # Configurer le fichier de timezone
-ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo ${TZ} > /etc/timezone
+ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 exec "$@"
