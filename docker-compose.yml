@@ -15,7 +15,8 @@ services:
       - TIMEZONE=Africa/Nairobi
     networks:
       - glpi-network
-    command: ["/usr/local/bin/entrypoint.sh","cron", "-f"]
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
+    command: ["cron", "-f"]
     restart: unless-stopped
 
 networks:

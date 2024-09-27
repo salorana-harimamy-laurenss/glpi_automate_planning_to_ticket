@@ -9,7 +9,8 @@ echo "APP_TOKEN=${APP_TOKEN:-NwBbL7EOwFixORF0MYP8mTzQJL8wBoSQWJySkZ1m}" >> /etc/
 # Vérifier si la variable d'environnement CRON_SCHEDULE est définie, sinon utiliser une valeur par défaut
 CRON_SCHEDULE=${CRON_SCHEDULE:-"*/30 * * * *"}
 echo "CRON_SCHEDULE=${CRON_SCHEDULE}" >> /etc/environment 
-echo "${CRON_SCHEDULE} /bin/bash -c 'source /etc/environment && /usr/local/bin/php /var/www/html/script_main.php >> /var/log/cron_script_glpi.log 2>&1'" > /etc/cron.d/crontab_glpi_planning
+echo -e "${CRON_SCHEDULE} root /usr/local/bin/php /var/www/html/script_main.php >> /var/log/cron_script_glpi.log 2>&1\n" > /etc/cron.d/crontab_glpi_planning
+echo "" >> /etc/cron.d/crontab_glpi_planning
 
 # Définir la timezone
 TZ=${TIMEZONE:-Africa/Nairobi}

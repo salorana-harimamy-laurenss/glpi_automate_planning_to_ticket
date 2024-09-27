@@ -15,13 +15,32 @@
 
 # Utilisation
 
+Après avoir cloner le dépôt , installer les dépendances .env pour le développement en local.
+**NB:** A noter que vous devez d'abord avoir **composer** installé sur votre environnement.
+
+```bash
+
+    $ composer install
+
+```
+Créer un fichier *.env* à la racine de ce répertoire, et spécifier les variables suivant :
+
+- **API_URL** : Votre URL pour le API GLPI
+- **USER_TOKEN** : Le Token de l'utilisateur ayant droit à l'accès à l'API
+- **APP_TOKEN** : Le Token de l'application GLPI sur le API GLPI
+- **WORKDIR_PATH** : La racine de répertoire courant
+
+Décommenter les lignes où les chargements de Dotenv et les déclarations sont . 
+
 Dans le dossier **script** , les classes utiles pour le script principal du **script_main.php**. Pour lancer le script :
 
 ```bash
 
-    php script_main.php
+    $ php script_main.php
 
-```      
+```    
+
+**NB:** Modifier les valeurs des variables d'environnement selon votre configuration.
 
 # Documentation
 

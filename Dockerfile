@@ -21,9 +21,6 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* zip
 
-# Activer l'extension curl pour PHP 
-RUN docker-php-ext-install curl
-
 # Copier votre script PHP dans le répertoire de travail
 COPY . .
 
@@ -46,3 +43,4 @@ RUN chmod 664 /var/log/cron_script_glpi.log
 
 # Appliquer le crontab
 RUN crontab /etc/cron.d/crontab_glpi_planning
+
