@@ -1,1 +1,1 @@
-30 4 * * * /bin/bash 'source /etc/environment /usr/local/bin/php /var/www/html/script_main.php >> /var/log/cron_script_glpi.log 2>&1'
+10 7 * * * /bin/bash -c "source /etc/environment && /usr/local/bin/php /var/www/html/script_main.php >> /var/log/cron_script_glpi.log 2>&1"

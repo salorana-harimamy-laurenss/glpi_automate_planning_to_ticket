@@ -14,7 +14,8 @@ RUN apt-get update && apt-get install -y \
     cron \
     git \
     tzdata \
-    && docker-php-ext-install curl \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* zip
 
